@@ -1,2 +1,3 @@
 # DiscipleD.github.io
-Record knowledge, share harvest. Recorded live, share happiness.
+Record knowledge, share harvest.  
+Record live, share happiness.
