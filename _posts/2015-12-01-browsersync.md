@@ -33,17 +33,17 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 // 静态服务器
 gulp.task('browser-sync',function(){
-    browserSync.init({
-      server: {
-        baseDir:"./"
-      }
-    });
+  browserSync.init({
+    server: {
+      baseDir:"./"
+    }
+  });
 });
 // 代理
 gulp.task('browser-sync', function() {
-    browserSync.init({
-     proxy: "你的域名或IP"
-   });
+  browserSync.init({
+    proxy: "你的域名或IP"
+  });
 });
 // 静态服务器（server)和代理（proxy）模式不能同时使用
 {% endhighlight %}
@@ -52,21 +52,21 @@ gulp.task('browser-sync', function() {
 {% highlight javascript %}
 // 打包js
 gulp.task('js', function () {
-    return gulp.src('app/js/*.js')
-      .pipe(browserify())
-      .pipe(uglify())
-      .pipe(gulp.dest('dist/js'));
+  return gulp.src('app/js/*.js')
+    .pipe(browserify())
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
 });
 // 确保js文件打包完成后，再调用reload方法
 gulp.task('js-watch', ['js'], browserSync.reload);
 gulp.task('browser-sync',function(){
-    browserSync.init({
-      server: {
-        baseDir:"./"
-      }
-    });
-    // 当js目录下js文件发生变化时调用browserSync.reload
-    gulp.watch("app/js/*.js", ['js-watch']);
+  browserSync.init({
+    server: {
+      baseDir:"./"
+    }
+  });
+  // 当js目录下js文件发生变化时调用browserSync.reload
+  gulp.watch("app/js/*.js", ['js-watch']);
 });
 {% endhighlight %}
 应用js file需要重新刷新页面，而应用CSS样式并不用重新加载页面。从示例图1就可以看到，当我们修改CSS file的时候页面及时响应了这些修改而并没有刷新页面，因为Browsersync可以通过配置将修改后的CSS文件直接注入到浏览器中。
@@ -74,35 +74,35 @@ gulp.task('browser-sync',function(){
 var sass = require('gulp-sass');
 // scss编译后的css将注入到浏览器里实现更新
 gulp.task('sass', function() {
-    return gulp.src("app/scss/*.scss")
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest("app/css"))
-      .pipe(browserSync.stream()); // stream method returns a transform stream
+  return gulp.src("app/scss/*.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest("app/css"))
+    .pipe(browserSync.stream()); // stream method returns a transform stream
 });
 // 修改上面的browser-sync task
 gulp.task('browser-sync',function(){
-    browserSync.init({
-      server: {
-        baseDir:"./"
-      }
-    });
-    // 当js目录下js文件发生变化时调用browserSync.reload
-    gulp.watch("app/js/*.js", ['js-watch']);
-    // 当scss目录下scss文件发生变化时调用sass task
-    gulp.watch("app/scss/*.scss", ['sass']);
+  browserSync.init({
+    server: {
+      baseDir:"./"
+    }
+  });
+  // 当js目录下js文件发生变化时调用browserSync.reload
+  gulp.watch("app/js/*.js", ['js-watch']);
+  // 当scss目录下scss文件发生变化时调用sass task
+  gulp.watch("app/scss/*.scss", ['sass']);
 });
 {% endhighlight %}
 项目中，开发时常前端和后端分离，而当各自接口开发完成后，进行联调测试时，前端会因为跨域问题无法请求到后台的数据，跨域当然可以通过现有的一些解决方案，如CORS等，但用Browsersync可以通过设置proxy的方式，简单的解决跨域问题而不需要修改业务代码。
 {% highlight javascript %}
 // 修改上面的browser-sync task
 gulp.task('browser-sync', function () {
-    browserSync.init({
-      proxy: "http://172.18.2.30", //后端服务器地址
-      serveStatic: ['./'] // 本地文件目录，proxy同server不能同时配置，需改用serveStatic代替
-    });
-    // 当js目录下js文件发生变化时调用browserSync.reload
-    gulp.watch("app/js/*.js", ['js-watch']);
-    // 当scss目录下scss文件发生变化时调用sass task
-    gulp.watch("app/scss/*.scss", ['sass']);
+  browserSync.init({
+    proxy: "http://172.18.2.30", //后端服务器地址
+    serveStatic: ['./'] // 本地文件目录，proxy同server不能同时配置，需改用serveStatic代替
+  });
+  // 当js目录下js文件发生变化时调用browserSync.reload
+  gulp.watch("app/js/*.js", ['js-watch']);
+  // 当scss目录下scss文件发生  变化时调用sass task
+  gulp.watch("app/scss/*.scss", ['sass']);
 });
 {% endhighlight %}
