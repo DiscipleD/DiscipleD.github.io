@@ -124,9 +124,12 @@ pre {
 		background-color: #6a6d5d;
 		@include rounded(4px);
 	}
-    // add background & border for pre style - DD
-    padding: 6px 10px;
-    border-radius: 3px;
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
+}
+
+.es6 pre{
+  // add background & border for pre style - DD
+  padding: 6px 10px;
+  border-radius: 3px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
 }
