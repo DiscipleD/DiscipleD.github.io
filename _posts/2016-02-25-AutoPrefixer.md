@@ -11,10 +11,10 @@ categories: [Css]
 
 ![AutoPrefixer](http://upload-images.jianshu.io/upload_images/1258730-04af23dfecfac121.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##What is AutoPrefixer
+##What is AutoPrefixer  
 Autoprefixer是一个后处理程序，你可以同Sass，Stylus或LESS等预处理器共通使用。它适用于普通的CSS，而你无需关心要为哪些浏览器加前缀，只需全新关注于实现，并使用W3C最新的规范。
 
-##How to use AutoPrefixer
+##How to use AutoPrefixer  
 介绍了这么多，如果用起来很麻烦，那还不如直接手写，而**AutoPrefixer**的另一大特点就是使用简便，现在来说说怎么用。
 
 **AutoPrefixer**可以简单的通过下载plugin配置到`Sublime`，`Brackets`或`Atom`等IDE里，而在`WebStorm`中无法通过plugin直接安装和使用AutoPrefixer，需要通过External Tools或File Watchers来实现，详细的在`WebStorm`中如何安装可以参考 [这篇文章](http://www.css88.com/archives/5670)。
