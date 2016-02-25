@@ -5,16 +5,16 @@ tags: [CSS3, Flex]
 categories: [Css]
 ---
 
-####What is Flex?
+##What is Flex?
 Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
 W3C于2009年提出了这一方案，时至今日，常用的浏览器已经全部都提供了对它的支持（当然不包括IE8）。  
 ![Flex浏览器支持情况](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071003.jpg)
 
-####Why to use Flex?
+##Why to use Flex?
 简便的实现页面布局。
 
-####How to use Flex?
+##How to use Flex?
 为一个元素简单地设置 display: flex; 就使得其成为Flex容器（flex container），其内部的所有子元素自动成为容器中的成员（flex item）。
 
 容器默认存在两根轴：水平的主轴（`main axis`）和垂直的交叉轴（`cross axis`）。主轴的开始位置（与边框的交叉点）叫做（`main start`），结束位置叫做`main end`；交叉轴的开始位置叫做`cross start`，结束位置叫做`cross end`。
@@ -29,7 +29,7 @@ W3C于2009年提出了这一方案，时至今日，常用的浏览器已经全�
 
 对于Webkit内核的浏览器需要加上`-webkit`前缀。
 
-###Flex Container Attributes
+##Flex Container Attributes
 ----
 1. `flex-direction`: row | row-reverse | column | column-reverse;  
 该属性决定flex item在容器中的排列方向，默认为row，即水平从左 → 右排列；column为从 上 ↓ 下排列；加-reverse后缀，即和原先排列顺序相反。
@@ -67,7 +67,7 @@ stretch：轴线占满整个交叉轴
 **注意：**  
 当`align-content`属性设定为flex-start、flex-end或center时，轴与轴之间默认是没有间隔的。
 
-###Flex Item Attributes
+##Flex Item Attributes
 ----
 1. `order`: \<integer\>;  
 该属性定义flex item的排列顺序，数值越小，排列越靠前，默认值为0。  
@@ -87,7 +87,7 @@ stretch：轴线占满整个交叉轴
 6. `align-self`: auto | flex-start | flex-end | center | baseline | stretch;  
 该属性用来设置只用于自身的对齐方式，将覆盖container的`align-items`属性，默认值为auto，即继承父属性的`align-items`属性。
 
-###TRY
+##TRY
 ----
 俗话说的好，光说不练假把式，既然已经清楚了概念，我就尝试使用这些特性，看到阮老师的另一篇文章后，自己也尝试做了一遍，通过flex完成了骰子的6个面。  
 ![骰子的六面](http://i.imgur.com/kx3NmeS.png)[点击查看源码](http://plnkr.co/edit/BthfuHwFAlZiOUxrU99v?p=preview)
