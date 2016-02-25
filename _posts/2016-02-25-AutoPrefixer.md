@@ -42,7 +42,7 @@ gulp.task('autoprefixer', function () {
 });
 // Method 2: gulp-autoprefixer
 gulp.task('autoprefixer', function () { 
-    var autoprefixer = require('gulp-autoprefixer');
+    var autoprefixer = require('gulp-autoprefixer');
 
     return gulp.src('./src/*.css')
       .pipe([ autoprefixer({ browsers: ['last 2 versions'] }) ])
