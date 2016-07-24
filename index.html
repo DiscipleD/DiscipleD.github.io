@@ -27,11 +27,30 @@
 		h2 {
 			line-height: 2.75;
 		}
+		.countdown-text{
+			display: inline-block;
+			width: 9ch;
+		}
+
+		.dot {
+			display: inline-block;
+			width: 3ch;
+			text-indent: 0;
+			vertical-align: bottom;
+			overflow: hidden;
+			animation: dot 3s infinite step-start both;
+			font-family: Consolas, Monaco, monospace;
+		}
+
+		@keyframes dot {
+			33% { text-indent: -2ch; }
+			66% { text-indent: -1ch; }
+		}
 	</style>
 </head>
 <body>
 <h2>My Blog is moved to a new <a href="http://discipled.daoapp.io/">HOME</a>.</h2>
-<h4>That page will lead you to <a href="http://discipled.daoapp.io/">there</a> in <span class="countdown-text">3 seconds</span>...</h4>
+<h4>That page will lead you to <a href="http://discipled.daoapp.io/">there</a> in <span class="countdown-text">3 seconds</span><span class="dot">...</span></h4>
 <script>
 	var countdownElement = document.querySelector('.countdown-text');
 	var COUNTSECOND = 3;
